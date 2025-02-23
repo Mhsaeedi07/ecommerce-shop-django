@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rxni-h1qkuqkr!y@=zc=!m_ks3w7vwvoc+^n*cnrk116u8i+-c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.58.188"]
+ALLOWED_HOSTS = [""]
 
 
 # Application definition
@@ -137,3 +137,4 @@ STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 STRIPE_API_VERSION = '2025-04-10'
 STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
+STATIC_ROOT = BASE_DIR / 'static'

@@ -24,7 +24,7 @@ class Order(models.Model):
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
 
-    def get_stripe_id(self):
+    def get_stripe_url(self):
         if not self.stripe_id:
             return ""
         if '_test_' in settings.STRIPE_SECRET_KEY:
