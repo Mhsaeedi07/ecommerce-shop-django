@@ -8,6 +8,7 @@ from orders.models import Order
 stripe.api_key = settings.STRIPE_SECRET_KEY
 stripe.api_version = settings.STRIPE_API_VERSION
 
+
 def payment_process(request):
     order_id = request.session.get('order_id')
     order = get_object_or_404(Order, id=order_id)
@@ -40,6 +41,14 @@ def payment_process(request):
                     'quantity': item.quantity,
                 }
             )
+        # Stripe coupon
+        if order.coupon:
+            stripe_coupon = stripe.Coupon.create(
+                name=order.coupon.code,
+                percent_off=order.discount,
+                duration='once'
+            )
+            session_data['discounts'] = [{'coupon': stripe_coupon.id}]
         # create Stripe checkout session
         session = stripe.checkout.Session.create(**session_data)
         # redirect to Stripe payment form
@@ -47,7 +56,10 @@ def payment_process(request):
     else:
         return render(request, 'payment/process.html', locals())
 
+
 def payment_completed(request):
     return render(request, 'payment/completed.html')
+
+
 def payment_canceled(request):
     return render(request, 'payment/canceled.html')

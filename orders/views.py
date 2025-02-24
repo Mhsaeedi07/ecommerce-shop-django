@@ -9,12 +9,17 @@ from django.contrib.staticfiles import finders
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 
+
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
         if form.is_valid():
-            order = form.save()
+            order = form.save(commit=False)
+            if cart.coupon:
+                order.coupon = cart.coupon
+                order.discount = cart.coupon.discount
+            order.save()
             for item in cart:
                 OrderItem.objects.create(
                     order=order,
@@ -42,6 +47,8 @@ def admin_order_detail(request, order_id):
     return render(
         request, 'admin/orders/order/detail.html', {'order': order}
     )
+
+
 @staff_member_required
 def admin_order_pdf(request, order_id):
     order = get_object_or_404(Order, id=order_id)
@@ -49,6 +56,6 @@ def admin_order_pdf(request, order_id):
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = f'filename=order_{order.id}.pdf'
     weasyprint.HTML(string=html).write_pdf(
-        response,stylesheets=[weasyprint.CSS(finders.find('css/pdf.css'))]
+        response, stylesheets=[weasyprint.CSS(finders.find('css/pdf.css'))]
     )
     return response
