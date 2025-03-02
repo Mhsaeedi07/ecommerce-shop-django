@@ -8,43 +8,69 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-01 10:28-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-03-02 01:15-0500\n"
+"PO-Revision-Date: 2025-03-02 06:25+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
 
 #: cart/form.py:10
 msgid "Quantity"
-msgstr ""
+msgstr "مقدار"
 
 #: coupons/forms.py:4
 msgid "Coupon"
-msgstr ""
+msgstr "کد تخفیف"
 
-#: myshop/settings.py:148
+#: myshop/settings.py:149
 msgid "English"
 msgstr "انگلیسی"
 
-#: myshop/settings.py:149
+#: myshop/settings.py:150
 msgid "farsi"
 msgstr "فارسی"
 
+#: myshop/urls.py:27
+msgid "cart/"
+msgstr "سبد/"
+
+#: myshop/urls.py:28
+msgid "orders/"
+msgstr "سفارشات/"
+
+#: myshop/urls.py:29
+msgid "payment/"
+msgstr "پرداخت/"
+
+#: myshop/urls.py:30
+#| msgid "Coupon"
+msgid "coupons/"
+msgstr "کد تخفیف/"
+
+#: payment/urls.py:6
+msgid "process/"
+msgstr "پردازش/"
+
+#: payment/urls.py:7
+msgid "completed/"
+msgstr "اتمام یافته/"
+
+#: payment/urls.py:8
+msgid "canceled/"
+msgstr "لغو شده"
+
 #: shop/templates/shop/base.html:6 shop/templates/shop/base.html:11
 msgid "My shop"
-msgstr ""
-
-#: shop/templates/shop/base.html:16
-msgid "Language"
-msgstr ""
+msgstr "فروشگاه"
 
 #: shop/templates/shop/base.html:34
 msgid "Your cart"
-msgstr ""
+msgstr "سبد خرید"
 
 #: shop/templates/shop/base.html:36
 #, python-format
@@ -57,16 +83,20 @@ msgid_plural ""
 "                        %(items)s items, $%(total)s\n"
 "                    "
 msgstr[0] ""
+"\n"
+" %(items)محصول, $%(total)s"
 msgstr[1] ""
+"\n"
+" %(items)محصولات, $%(total)s"
 
 #: shop/templates/shop/base.html:43
 msgid "Your cart is empty."
-msgstr ""
+msgstr "سبد خرید شما خالی است"
 
 #: shop/templates/shop/product/detail.html:21
 msgid "Add to cart"
-msgstr ""
+msgstr "اضافه کردن به سبد خرید"
 
 #: shop/templates/shop/product/detail.html:27
 msgid "People who bought this also bought"
-msgstr ""
+msgstr "کالاهای مشابه"

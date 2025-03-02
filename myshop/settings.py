@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
     'rosetta',
+    'parler',
+    'localflavor',
 ]
 
 MIDDLEWARE = [
@@ -152,3 +154,14 @@ LANGUAGES = [
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
     ]
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'fa'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
